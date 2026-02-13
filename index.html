@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Resource Management System</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Login Screen -->
+    <div id="loginScreen" class="auth-screen">
+        <div class="auth-container">
+            <div class="auth-header">
+                <div class="logo-container">
+                    <svg class="logo-icon" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                        <rect x="10" y="10" width="80" height="80" rx="8" fill="none" stroke="currentColor" stroke-width="3"/>
+                        <circle cx="30" cy="30" r="8" fill="currentColor"/>
+                        <circle cx="70" cy="30" r="8" fill="currentColor"/>
+                        <circle cx="30" cy="70" r="8" fill="currentColor"/>
+                        <circle cx="70" cy="70" r="8" fill="currentColor"/>
+                        <line x1="30" y1="30" x2="70" y2="30" stroke="currentColor" stroke-width="2"/>
+                        <line x1="70" y1="30" x2="70" y2="70" stroke="currentColor" stroke-width="2"/>
+                        <line x1="70" y1="70" x2="30" y2="70" stroke="currentColor" stroke-width="2"/>
+                        <line x1="30" y1="70" x2="30" y2="30" stroke="currentColor" stroke-width="2"/>
+                    </svg>
+                    <h1>Event Resource Management</h1>
+                </div>
+                <p class="auth-subtitle">Institutional Event & Resource Allocation System</p>
+            </div>
+            
+            <form id="loginForm" class="auth-form">
+                <div class="form-group">
+                    <label for="loginEmail">Email Address</label>
+                    <input type="email" id="loginEmail" required placeholder="your.email@university.edu">
+                </div>
+                
+                <div class="form-group">
+                    <label for="loginPassword">Password</label>
+                    <input type="password" id="loginPassword" required placeholder="••••••••">
+                </div>
+                
+                <button type="submit" class="btn btn-primary btn-block">
+                    <span>Sign In</span>
+                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                        <path d="M6 12L10 8L6 4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                    </svg>
+                </button>
+                
+                <p class="auth-switch">
+                    Don't have an account? 
+                    <a href="#" onclick="showRegister(); return false;">Register</a>
+                </p>
+            </form>
+        </div>
+    </div>
+
+    <!-- Register Screen -->
+    <div id="registerScreen" class="auth-screen" style="display: none;">
+        <div class="auth-container">
+            <div class="auth-header">
+                <div class="logo-container">
+                    <svg class="logo-icon" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                        <rect x="10" y="10" width="80" height="80" rx="8" fill="none" stroke="currentColor" stroke-width="3"/>
+                        <circle cx="30" cy="30" r="8" fill="currentColor"/>
+                        <circle cx="70" cy="30" r="8" fill="currentColor"/>
+                        <circle cx="30" cy="70" r="8" fill="currentColor"/>
+                        <circle cx="70" cy="70" r="8" fill="currentColor"/>
+                        <line x1="30" y1="30" x2="70" y2="30" stroke="currentColor" stroke-width="2"/>
+                        <line x1="70" y1="30" x2="70" y2="70" stroke="currentColor" stroke-width="2"/>
+                        <line x1="70" y1="70" x2="30" y2="70" stroke="currentColor" stroke-width="2"/>
+                        <line x1="30" y1="70" x2="30" y2="30" stroke="currentColor" stroke-width="2"/>
+                    </svg>
+                    <h1>Create Account</h1>
+                </div>
+                <p class="auth-subtitle">Register for Event Management Access</p>
+            </div>
+            
+            <form id="registerForm" class="auth-form">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="registerName">Full Name</label>
+                        <input type="text" id="registerName" required placeholder="John Doe">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="registerEmail">Email</label>
+                        <input type="email" id="registerEmail" required placeholder="john@university.edu">
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="registerPassword">Password</label>
+                    <input type="password" id="registerPassword" required placeholder="••••••••">
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="registerRole">Role</label>
+                        <select id="registerRole" required>
+                            <option value="">Select Role</option>
+                            <option value="Coordinator">Event Coordinator</option>
+                            <option value="HOD">Head of Department</option>
+                            <option value="Dean">Dean</option>
+                            <option value="Head">Institutional Head</option>
+                            <option value="Admin">Admin/ITC</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="registerDepartment">Department ID</label>
+                        <input type="text" id="registerDepartment" placeholder="e.g., CS, EE">
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="registerSchool">School ID</label>
+                    <input type="text" id="registerSchool" placeholder="e.g., Engineering, Arts">
+                </div>
+                
+                <button type="submit" class="btn btn-primary btn-block">
+                    <span>Create Account</span>
+                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                        <path d="M6 12L10 8L6 4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                    </svg>
+                </button>
+                
+                <p class="auth-switch">
+                    Already have an account? 
+                    <a href="#" onclick="showLogin(); return false;">Sign In</a>
+                </p>
+            </form>
+        </div>
+    </div>
+
+    <!-- Main Dashboard -->
+    <div id="dashboard" class="dashboard" style="display: none;">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <svg class="logo-icon-small" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                    <rect x="10" y="10" width="80" height="80" rx="8" fill="none" stroke="currentColor" stroke-width="3"/>
+                    <circle cx="30" cy="30" r="8" fill="currentColor"/>
+                    <circle cx="70" cy="30" r="8" fill="currentColor"/>
+                    <circle cx="30" cy="70" r="8" fill="currentColor"/>
+                    <circle cx="70" cy="70" r="8" fill="currentColor"/>
+                </svg>
+                <span class="logo-text">ERMS</span>
+            </div>
+            
+            <nav class="sidebar-nav">
+                <a href="#" class="nav-item active" data-view="overview">
+                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                        <rect x="2" y="2" width="7" height="7" rx="1" stroke="currentColor" stroke-width="1.5"/>
+                        <rect x="11" y="2" width="7" height="7" rx="1" stroke="currentColor" stroke-width="1.5"/>
+                        <rect x="2" y="11" width="7" height="7" rx="1" stroke="currentColor" stroke-width="1.5"/>
+                        <rect x="11" y="11" width="7" height="7" rx="1" stroke="currentColor" stroke-width="1.5"/>
+                    </svg>
+                    <span>Overview</span>
+                </a>
+                
+                <a href="#" class="nav-item" data-view="events">
+                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                        <rect x="2" y="3" width="16" height="14" rx="2" stroke="currentColor" stroke-width="1.5"/>
+                        <path d="M2 7H18" stroke="currentColor" stroke-width="1.5"/>
+                        <path d="M6 5V1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                        <path d="M14 5V1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                    </svg>
+                    <span>Events</span>
+                </a>
+                
+                <a href="#" class="nav-item" data-view="venues">
+                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                        <path d="M2 8L10 2L18 8V17C18 17.5304 17.7893 18.0391 17.4142 18.4142C17.0391 18.7893 16.5304 19 16 19H4C3.46957 19 2.96086 18.7893 2.58579 18.4142C2.21071 18.0391 2 17.5304 2 17V8Z" stroke="currentColor" stroke-width="1.5"/>
+                        <path d="M7 19V10H13V19" stroke="currentColor" stroke-width="1.5"/>
+                    </svg>
+                    <span>Venues</span>
+                </a>
+                
+                <a href="#" class="nav-item" data-view="resources">
+                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                        <rect x="2" y="2" width="16" height="16" rx="2" stroke="currentColor" stroke-width="1.5"/>
+                        <path d="M10 6V14" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                        <path d="M6 10H14" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                    </svg>
+                    <span>Resources</span>
+                </a>
+                
+                <a href="#" class="nav-item" data-view="approvals" id="approvalsNav" style="display: none;">
+                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                        <path d="M16 6L7.5 14.5L4 11" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        <circle cx="10" cy="10" r="8" stroke="currentColor" stroke-width="1.5"/>
+                    </svg>
+                    <span>Approvals</span>
+                    <span class="badge" id="approvalsBadge">0</span>
+                </a>
+            </nav>
+            
+            <div class="sidebar-footer">
+                <div class="user-info">
+                    <div class="user-avatar" id="userAvatar">U</div>
+                    <div class="user-details">
+                        <p class="user-name" id="userName">User</p>
+                        <p class="user-role" id="userRole">Role</p>
+                    </div>
+                </div>
+                <button class="btn-logout" onclick="logout()">
+                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                        <path d="M6 14H3C2.46957 14 1.96086 13.7893 1.58579 13.4142C1.21071 13.0391 1 12.5304 1 12V4C1 3.46957 1.21071 2.96086 1.58579 2.58579C1.96086 2.21071 2.46957 2 3 2H6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                        <path d="M11 11L15 8L11 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                        <path d="M15 8H6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                    </svg>
+                </button>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Header -->
+            <header class="content-header">
+                <div>
+                    <h2 id="pageTitle">Dashboard Overview</h2>
+                    <p id="pageSubtitle">Welcome back! Here's what's happening today.</p>
+                </div>
+                <div class="header-actions">
+                    <button class="btn btn-secondary" onclick="refreshData()">
+                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                            <path d="M13 3V7H9" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                            <path d="M3 13V9H7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                            <path d="M12.5 6.5C12.0253 5.3044 11.1857 4.28823 10.1041 3.59668C9.02244 2.90512 7.75549 2.57361 6.47811 2.64838C5.20074 2.72315 3.98141 3.20034 2.98742 4.00982C1.99343 4.81929 1.27371 5.91824 0.927734 7.15" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                            <path d="M3.5 9.5C3.97474 10.6956 4.81426 11.7118 5.89589 12.4033C6.97752 13.0949 8.24447 13.4264 9.52185 13.3516C10.7992 13.2768 12.0186 12.7997 13.0126 11.9902C14.0066 11.1807 14.7263 10.0818 15.0723 8.85" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                        </svg>
+                        <span>Refresh</span>
+                    </button>
+                    <button class="btn btn-primary" onclick="showCreateEvent()" id="createEventBtn">
+                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                            <path d="M8 3V13" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                            <path d="M3 8H13" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                        </svg>
+                        <span>New Event</span>
+                    </button>
+                </div>
+            </header>
+
+            <!-- Views -->
+            <div id="overviewView" class="view-content">
+                <!-- Stats Cards -->
+                <div class="stats-grid">
+                    <div class="stat-card stat-primary">
+                        <div class="stat-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                <rect x="3" y="4" width="18" height="16" rx="2" stroke="currentColor" stroke-width="2"/>
+                                <path d="M3 8H21" stroke="currentColor" stroke-width="2"/>
+                            </svg>
+                        </div>
+                        <div class="stat-info">
+                            <p class="stat-label">Total Events</p>
+                            <p class="stat-value" id="statTotalEvents">0</p>
+                        </div>
+                    </div>
+                    
+                    <div class="stat-card stat-warning">
+                        <div class="stat-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                <circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="2"/>
+                                <path d="M12 6V12L16 14" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                            </svg>
+                        </div>
+                        <div class="stat-info">
+                            <p class="stat-label">Pending</p>
+                            <p class="stat-value" id="statPending">0</p>
+                        </div>
+                    </div>
+                    
+                    <div class="stat-card stat-success">
+                        <div class="stat-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                <circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="2"/>
+                                <path d="M8 12L11 15L16 10" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                            </svg>
+                        </div>
+                        <div class="stat-info">
+                            <p class="stat-label">Approved</p>
+                            <p class="stat-value" id="statApproved">0</p>
+                        </div>
+                    </div>
+                    
+                    <div class="stat-card stat-info">
+                        <div class="stat-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                <path d="M3 9L12 2L21 9V20C21 20.5304 20.7893 21.0391 20.4142 21.4142C20.0391 21.7893 19.5304 22 19 22H5C4.46957 22 3.96086 21.7893 3.58579 21.4142C3.21071 21.0391 3 20.5304 3 20V9Z" stroke="currentColor" stroke-width="2"/>
+                            </svg>
+                        </div>
+                        <div class="stat-info">
+                            <p class="stat-label">Available Venues</p>
+                            <p class="stat-value" id="statVenues">0</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Recent Events -->
+                <div class="content-section">
+                    <div class="section-header">
+                        <h3>Recent Events</h3>
+                        <a href="#" onclick="switchView('events'); return false;">View All →</a>
+                    </div>
+                    <div class="events-list" id="recentEventsList">
+                        <!-- Events will be loaded here -->
+                    </div>
+                </div>
+            </div>
+
+            <div id="eventsView" class="view-content" style="display: none;">
+                <div class="content-section">
+                    <div class="section-header">
+                        <h3>All Events</h3>
+                        <div class="filters">
+                            <select id="eventStatusFilter" onchange="filterEvents()">
+                                <option value="">All Status</option>
+                                <option value="Pending">Pending</option>
+                                <option value="HOD_Review">HOD Review</option>
+                                <option value="Dean_Review">Dean Review</option>
+                                <option value="Head_Review">Head Review</option>
+                                <option value="Approved">Approved</option>
+                                <option value="Running">Running</option>
+                                <option value="Completed">Completed</option>
+                                <option value="Rejected">Rejected</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="events-grid" id="allEventsList">
+                        <!-- Events will be loaded here -->
+                    </div>
+                </div>
+            </div>
+
+            <div id="venuesView" class="view-content" style="display: none;">
+                <div class="content-section">
+                    <div class="section-header">
+                        <h3>Venue Management</h3>
+                        <button class="btn btn-secondary" onclick="showAddVenue()" id="addVenueBtn">
+                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                                <path d="M8 3V13" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                                <path d="M3 8H13" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                            </svg>
+                            <span>Add Venue</span>
+                        </button>
+                    </div>
+                    <div class="venues-grid" id="venuesList">
+                        <!-- Venues will be loaded here -->
+                    </div>
+                </div>
+            </div>
+
+            <div id="resourcesView" class="view-content" style="display: none;">
+                <div class="content-section">
+                    <div class="section-header">
+                        <h3>Resource Inventory</h3>
+                        <button class="btn btn-secondary" onclick="showAddResource()" id="addResourceBtn">
+                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                                <path d="M8 3V13" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                                <path d="M3 8H13" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                            </svg>
+                            <span>Add Resource</span>
+                        </button>
+                    </div>
+                    <div class="resources-grid" id="resourcesList">
+                        <!-- Resources will be loaded here -->
+                    </div>
+                </div>
+            </div>
+
+            <div id="approvalsView" class="view-content" style="display: none;">
+                <div class="content-section">
+                    <div class="section-header">
+                        <h3>Pending Approvals</h3>
+                    </div>
+                    <div class="approvals-list" id="approvalsList">
+                        <!-- Approvals will be loaded here -->
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Modals -->
+    <div id="modalOverlay" class="modal-overlay" onclick="closeModal()"></div>
+    
+    <!-- Create Event Modal -->
+    <div id="createEventModal" class="modal">
+        <div class="modal-header">
+            <h3>Create New Event</h3>
+            <button class="modal-close" onclick="closeModal()">×</button>
+        </div>
+        <form id="createEventForm" class="modal-body">
+            <div class="form-group">
+                <label for="eventTitle">Event Title *</label>
+                <input type="text" id="eventTitle" required placeholder="Annual Tech Fest">
+            </div>
+            
+            <div class="form-group">
+                <label for="eventDescription">Description</label>
+                <textarea id="eventDescription" rows="3" placeholder="Brief description of the event..."></textarea>
+            </div>
+            
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="eventStart">Start Date & Time *</label>
+                    <input type="datetime-local" id="eventStart" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="eventEnd">End Date & Time *</label>
+                    <input type="datetime-local" id="eventEnd" required>
+                </div>
+            </div>
+            
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="eventParticipants">Expected Participants *</label>
+                    <input type="number" id="eventParticipants" required min="1" placeholder="100">
+                </div>
+                
+                <div class="form-group">
+                    <label for="eventVenueType">Venue Type</label>
+                    <select id="eventVenueType">
+                        <option value="">Any</option>
+                        <option value="Auditorium">Auditorium</option>
+                        <option value="Conference Hall">Conference Hall</option>
+                        <option value="Seminar Room">Seminar Room</option>
+                        <option value="Outdoor">Outdoor</option>
+                        <option value="Lab">Lab</option>
+                    </select>
+                </div>
+            </div>
+            
+            <div class="form-group">
+                <label>Required Resources</label>
+                <div id="resourceSelectionList" class="resource-selection">
+                    <!-- Resources will be loaded here -->
+                </div>
+            </div>
+            
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" onclick="closeModal()">Cancel</button>
+                <button type="submit" class="btn btn-primary">Submit Request</button>
+            </div>
+        </form>
+    </div>
+
+    <!-- Event Details Modal -->
+    <div id="eventDetailsModal" class="modal modal-large">
+        <div class="modal-header">
+            <h3>Event Details</h3>
+            <button class="modal-close" onclick="closeModal()">×</button>
+        </div>
+        <div class="modal-body" id="eventDetailsContent">
+            <!-- Event details will be loaded here -->
+        </div>
+    </div>
+
+    <!-- Toast Notification -->
+    <div id="toast" class="toast"></div>
+
+    <script src="https://cdn.socket.io/4.7.2/socket.io.min.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
